@@ -41,6 +41,7 @@ const Navbar = () => {
               draggable="false"
               style={{ background: 'transparent', border: 'none' }}
             />
+
           </div>
           <span className="hidden md:block font-bold text-lg bg-gradient-to-r from-[#ee2b7a] via-[#fe9f5d] to-[#e1a1ed] bg-clip-text text-transparent tracking-tight drop-shadow-md transition-all duration-500 group-hover:drop-shadow-[0_0_8px_#ee2b7a80] group-focus:drop-shadow-[0_0_8px_#ee2b7a80] animate-gradient-x">
             Pamela Weissberg

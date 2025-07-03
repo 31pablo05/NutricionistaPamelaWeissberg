@@ -1,3 +1,10 @@
+@keyframes navbar-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.08); }
+}
+.animate-navbar-float {
+  animation: navbar-float 3s ease-in-out infinite;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
