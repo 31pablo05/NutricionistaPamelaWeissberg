@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animación para el efecto de máquina de escribir */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%; /* El texto se mantiene dentro del contenedor */
+  }
+}
+
+.typing-effect {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #ee2b7a;
+  animation: typing 5s steps(27, end) forwards; /* Duración ajustada a 1 vez */
+}
+
+/* Animación para el fade-in y desplazamiento hacia arriba */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-15deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wave {
+  animation: wave 1s infinite;
+  transform-origin: 70% 70%;
+}
+
+
+body {
+  @apply m-0 font-sans antialiased;
+}
+
+code {
+  @apply font-mono;
+}
