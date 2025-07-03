@@ -139,7 +139,7 @@ const Banner = () => {
           
           {/* Columna izquierda - Contenido textual */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-8 mx-auto lg:ml-56 xl:ml-72 2xl:ml-80 max-w-xl lg:max-w-lg xl:max-w-xl"
             variants={itemVariants}
           >
             {/* Badge profesional */}
