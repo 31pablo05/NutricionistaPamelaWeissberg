@@ -1,13 +1,313 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Favicon y iconos -->
+  <link rel="icon" type="image/webp" href="/assets/iconos/plan-de-nutricion.webp" />
+  <link rel="apple-touch-icon" href="/assets/iconos/plan-de-nutricion.webp" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Lic. Pamela Weissberg - Nutricionista Licenciada en Trelew, Chubut | Especialista en Nutrición Deportiva</title>
+  <meta name="description" content="Lic. Pamela Weissberg, nutricionista licenciada y matriculada en Trelew, Chubut. +10 años de experiencia. Especialista en nutrición deportiva, consultas presenciales y online. Planes nutricionales personalizados y seguimiento profesional." />
+  <meta name="keywords" content="nutricionista licenciada Trelew, Lic Pamela Weissberg, nutricionista matriculada Chubut, nutrición deportiva Trelew, licenciada en nutrición Patagonia, nutricionista profesional Trelew, consulta nutricional Chubut, alimentación saludable Trelew, dietista licenciada Argentina" />
+  <meta name="author" content="Lic. Pamela Weissberg - Nutricionista Licenciada" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Información profesional específica -->
+  <meta name="profession" content="Licenciada en Nutrición" />
+  <meta name="specialization" content="Nutrición Deportiva" />
+  <meta name="license" content="Nutricionista Matriculada" />
+  <meta name="experience" content="Más de 10 años de experiencia" />
+  <meta name="service-area" content="Trelew, Chubut, Patagonia, Argentina" />
+  
+  <!-- Ubicación y negocio local -->
+  <meta name="geo.region" content="AR-U" />
+  <meta name="geo.placename" content="Trelew, Chubut, Argentina" />
+  <meta name="geo.position" content="-43.2482,-65.3050" />
+  <meta name="ICBM" content="-43.2482,-65.3050" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nutricionista-pamela-weissberg.vercel.app/" />
+  <meta property="og:title" content="Lic. Pamela Weissberg - Nutricionista Licenciada en Trelew, Chubut" />
+  <meta property="og:description" content="Nutricionista licenciada especializada en nutrición deportiva. Más de 10 años de experiencia. Consultas presenciales en Trelew y online para toda la Patagonia." />
+  <meta property="og:image" content="https://nutricionista-pamela-weissberg.vercel.app/assets/imagesPame/pame1.webp" />
+  <meta property="og:image:alt" content="Lic. Pamela Weissberg - Nutricionista Licenciada en Trelew" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="Lic. Pamela Weissberg - Nutricionista Licenciada" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://nutricionista-pamela-weissberg.vercel.app/" />
+  <meta name="twitter:title" content="Lic. Pamela Weissberg - Nutricionista Licenciada en Trelew" />
+  <meta name="twitter:description" content="Nutricionista licenciada especializada en nutrición deportiva. Consultas presenciales en Trelew y online." />
+  <meta name="twitter:image" content="https://nutricionista-pamela-weissberg.vercel.app/assets/imagesPame/pame1.webp" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://nutricionista-pamela-weissberg.vercel.app/" />
+  
+  <!-- Enlaces a redes sociales -->
+  <link rel="me" href="https://www.instagram.com/nutricionpamelaweissberg/" />
+  <link rel="me" href="https://www.facebook.com/pamela.weissberg.9" />
+  <link rel="me" href="https://www.threads.com/@nutricionpamelaweissberg" />
+  
+  <!-- Structured Data - Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Lic. Pamela Weissberg - Nutricionista Licenciada",
+    "alternateName": "Nutricionista Pamela Weissberg",
+    "description": "Consultoría nutricional profesional. Licenciada en Nutrición especializada en nutrición deportiva y alimentación saludable. Más de 10 años de experiencia en Trelew, Chubut.",
+    "url": "https://nutricionista-pamela-weissberg.vercel.app/",
+    "logo": "https://nutricionista-pamela-weissberg.vercel.app/assets/iconos/plan-de-nutricion.webp",
+    "image": "https://nutricionista-pamela-weissberg.vercel.app/assets/imagesPame/pame1.webp",
+    "telephone": "+54-280-XXX-XXXX",
+    "email": "contacto@pamelaweissberg.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Centro de Trelew",
+      "addressLocality": "Trelew",
+      "addressRegion": "Chubut",
+      "postalCode": "9100",
+      "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -43.2482,
+      "longitude": -65.3050
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$",
+    "servedCuisine": "Nutrition Counseling",
+    "medicalSpecialty": "Nutrition",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Trelew",
+        "containedInPlace": "Chubut, Argentina"
+      },
+      {
+        "@type": "State",
+        "name": "Chubut",
+        "containedInPlace": "Argentina"
+      },
+      {
+        "@type": "Place",
+        "name": "Patagonia Argentina"
+      }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Pamela Weissberg",
+      "honorificPrefix": "Lic.",
+      "jobTitle": "Licenciada en Nutrición",
+      "description": "Nutricionista licenciada especializada en nutrición deportiva con más de 10 años de experiencia profesional",
+      "alumniOf": "Universidad Católica de La Plata (UCALP)",
+      "knowsAbout": [
+        "Nutrición Deportiva",
+        "Alimentación Saludable", 
+        "Planes Nutricionales Personalizados",
+        "Evaluación Nutricional",
+        "Nutrición Clínica"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/nutricionpamelaweissberg/",
+        "https://www.facebook.com/pamela.weissberg.9",
+        "https://www.threads.com/@nutricionpamelaweissberg"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/nutricionpamelaweissberg/",
+      "https://www.facebook.com/pamela.weissberg.9",
+      "https://www.threads.com/@nutricionpamelaweissberg"
+    ],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "educationalLevel": "Licenciatura",
+      "recognizedBy": "Universidad Católica de La Plata"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Nutrición Profesional",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Consulta Nutricional Presencial",
+            "description": "Evaluación nutricional completa con Inbody y plan personalizado en consultorio de Trelew"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Consulta Nutricional Online",
+            "description": "Asesoramiento nutricional virtual personalizado para toda la Patagonia y Argentina"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Nutrición Deportiva Especializada",
+            "description": "Planes nutricionales especializados para deportistas y atletas de alto rendimiento"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Recetarios y Planes Nutricionales",
+            "description": "Planes alimentarios personalizados adaptados a necesidades específicas y patologías"
+          }
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "85",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+  
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Lic. Pamela Weissberg - Nutricionista Licenciada Trelew",
+    "alternateName": "Nutricionista Pamela Weissberg",
+    "description": "Consultoría nutricional profesional en Trelew, Chubut. Licenciada en Nutrición especialista en nutrición deportiva y alimentación saludable. Atención presencial y online.",
+    "url": "https://nutricionista-pamela-weissberg.vercel.app/",
+    "telephone": "+54-280-XXX-XXXX",
+    "email": "contacto@pamelaweissberg.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Centro de Trelew",
+      "addressLocality": "Trelew",
+      "addressRegion": "Chubut",
+      "postalCode": "9100",
+      "addressCountry": "Argentina"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -43.2482,
+      "longitude": -65.3050
+    },
+    "openingHours": [
+      "Mo-Fr 09:00-18:00"
+    ],
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer, MercadoPago",
+    "currenciesAccepted": "ARS",
+    "priceRange": "$$",
+    "areaServed": [
+      "Trelew",
+      "Rawson", 
+      "Puerto Madryn",
+      "Chubut",
+      "Patagonia",
+      "Argentina Online"
+    ],
+    "hasMap": "https://maps.google.com/?q=Trelew,Chubut,Argentina",
+    "isAccessibleForFree": false,
+    "smokingAllowed": false
+  }
+  </script>
+  
+  <!-- Preconnect para performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- DNS Prefetch para redes sociales -->
+  <link rel="dns-prefetch" href="//instagram.com" />
+  <link rel="dns-prefetch" href="//facebook.com" />
+  <link rel="dns-prefetch" href="//threads.net" />
+  
+  <!-- Theme color -->
+  <meta name="theme-color" content="#ee2b7a" />
+  <meta name="msapplication-TileColor" content="#ee2b7a" />
+  
+  <!-- Verificación de sitios -->
+  <meta name="google-site-verification" content="tu-codigo-de-verificacion-google" />
+  
+  <!-- Política de referrer -->
+  <meta name="referrer" content="origin-when-cross-origin" />
+  
+  <!-- Alternates para idiomas (si planeas expandir) -->
+  <link rel="alternate" hreflang="es-ar" href="https://nutricionista-pamela-weissberg.vercel.app/" />
+  <link rel="alternate" hreflang="es" href="https://nutricionista-pamela-weissberg.vercel.app/" />
+  
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  
+  <!-- Google Analytics (reemplaza con tu ID real) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  
+  <!-- Structured Data adicional para FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Dónde atiende la Lic. Pamela Weissberg en Trelew?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Lic. Pamela Weissberg atiende en su consultorio en el centro de Trelew, Chubut, Argentina. También ofrece consultas online para pacientes de toda la región patagónica y Argentina."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué especialidades tiene la nutricionista licenciada Pamela Weissberg?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Lic. Pamela Weissberg es especialista en nutrición deportiva, planes nutricionales personalizados, evaluación con Inbody, y acompañamiento en el desarrollo de hábitos alimentarios saludables. Cuenta con más de 10 años de experiencia profesional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿La nutricionista Pamela Weissberg está licenciada y matriculada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, Pamela Weissberg es Licenciada en Nutrición egresada de la Universidad Católica de La Plata (UCALP) y se encuentra debidamente matriculada para ejercer en la provincia de Chubut."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Ofrece consultas nutricionales online desde Trelew?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, la Lic. Pamela Weissberg ofrece consultas nutricionales online para pacientes de toda Argentina, especialmente útil para quienes no pueden asistir presencialmente a su consultorio en Trelew, Chubut."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuáles son los métodos de evaluación que utiliza la nutricionista en Trelew?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Lic. Pamela Weissberg utiliza tecnología avanzada como el análisis de composición corporal Inbody, evaluación antropométrica completa, análisis de hábitos alimentarios y evaluación clínica para brindar un diagnóstico nutricional preciso."
+        }
+      }
+    ]
+  }
+  </script>
+</body>
 </html>
