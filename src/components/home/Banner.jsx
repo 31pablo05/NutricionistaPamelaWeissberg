@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
@@ -6,8 +6,22 @@ import Fondovideo from '/assets/videos/fondobanner5.mp4';
 
 const Banner = () => {
   const navigate = useNavigate();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef(null);
+  
   const redirigirATurnos = () => {
     navigate('/turnos-online');
+  };
+
+  // Función para manejar cuando el video está listo para reproducir
+  const handleVideoCanPlay = () => {
+    setVideoLoaded(true);
+  };
+
+  // Función para manejar errores del video
+  const handleVideoError = () => {
+    setVideoError(true);
   };
 
   // Variantes de animación para diferentes elementos
@@ -57,18 +71,58 @@ const Banner = () => {
         />
       </Helmet>
 
-      {/* Video de fondo con overlay */}
+      {/* Video de fondo con overlay y poster mejorado */}
       <div className="absolute inset-0 z-0">
-        <video
+        {/* Imagen de poster como fallback con transición suave */}
+        <motion.div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/assets/imagesComponents/posterBanner.webp)'
+          }}
+          initial={{ opacity: 1 }}
+          animate={{ 
+            opacity: videoLoaded && !videoError ? 0 : 1 
+          }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        ></motion.div>
+        
+        {/* Video con manejo de estados mejorado */}
+        <motion.video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          poster="/assets/imagesComponents/posterBanner.webp"
           className="w-full h-full object-cover"
+          onCanPlay={handleVideoCanPlay}
+          onError={handleVideoError}
+          onLoadedData={() => setVideoLoaded(true)}
+          initial={{ opacity: 0 }}
+          animate={{ 
+            opacity: videoLoaded && !videoError ? 1 : 0 
+          }}
+          transition={{ duration: 1, ease: "easeInOut" }}
         >
           <source src={Fondovideo} type="video/mp4" />
           Tu navegador no soporta el video de fondo.
-        </video>
+        </motion.video>
+        
+        {/* Indicador de carga sutil (opcional) */}
+        {!videoLoaded && !videoError && (
+          <motion.div 
+            className="absolute top-4 right-4 z-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="flex items-center gap-2 bg-black/50 backdrop-blur-sm px-3 py-2 rounded-full">
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              <span className="text-white text-xs">Cargando video...</span>
+            </div>
+          </motion.div>
+        )}
+        
         {/* Overlay con gradiente para mejor legibilidad */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
       </div>
@@ -178,9 +232,9 @@ const Banner = () => {
               </div>
             </motion.div>
 
-            {/* Botones de acción mejorados */}
+            {/* Botón de acción principal */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 pt-8"
+              className="flex justify-center sm:justify-start pt-8"
               variants={itemVariants}
             >
               <motion.button
@@ -199,14 +253,6 @@ const Banner = () => {
                   </motion.span>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.button>
-
-              <motion.button
-                className="px-8 py-4 border-2 border-white/50 text-white font-semibold rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-                whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.8)' }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Conocer más
               </motion.button>
             </motion.div>
           </motion.div>
