@@ -16,9 +16,9 @@ function App() {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-        <div className="App min-h-screen flex flex-col">
+        <div className="App min-h-screen flex flex-col overflow-x-hidden">
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow overflow-x-hidden">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/quien-soy" element={<QuienSoy />} />

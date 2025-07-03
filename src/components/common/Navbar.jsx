@@ -2,211 +2,136 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaHome, FaUser, FaBook, FaCalendarAlt } from 'react-icons/fa';
 
+const navLinks = [
+  { to: '/', label: 'Inicio', icon: <FaHome />, desktop: 'Home' },
+  { to: '/quien-soy', label: 'Sobre Mí', icon: <FaUser />, desktop: 'Quién Soy' },
+  { to: '/recetario', label: 'Recetario', icon: <FaBook />, desktop: 'Recetario' },
+  { to: '/turnos-online', label: 'Turnos', icon: <FaCalendarAlt />, desktop: 'Turnos Online' },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((v) => !v);
+
+  // Cierra el menú móvil al cambiar a desktop
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isMenuOpen) setIsMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMenuOpen]);
 
   return (
-    // Navbar Container - Mejorado para responsive design
-    <nav className="backdrop-blur-xl bg-white/30 bg-gradient-to-r from-[#e1a1ed]/70 via-[#f3e8ff]/70 to-[#ee5e17]/70 fixed top-0 left-0 w-full shadow-2xl z-50 py-2 md:py-3 px-3 md:px-6 border-b-2 border-white/40 rounded-b-3xl animate-fade-in-down">
-      <div className="w-full max-w-7xl mx-auto flex justify-between items-center">
-          {/* Logo mejorado con animaciones */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#ee2b7a] via-[#fe9f5d] to-[#e1a1ed] rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
-            <div className="relative flex items-center bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border-2 border-white/70 px-2 py-2 md:px-3 md:py-2 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-              <NavLink to="/" className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ee2b7a]/20 to-[#fe9f5d]/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img
-                  src="/assets/logos/logo2transp.webp"
-                  alt="Nutricionista Pamela Weissberg"
-                  className="relative rounded-xl h-10 w-auto md:h-12 md:w-auto transition-all duration-300 group-hover:scale-110 cursor-pointer border border-[#ee2b7a]/20 shadow-lg"
-                />
-                {/* Efecto de brillo animado */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-              </NavLink>
-              {/* Texto del logo en pantallas medianas y grandes */}
-              <div className="hidden sm:block ml-3">
-                <h1 className="text-sm md:text-base font-bold bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] bg-clip-text text-transparent">
-                  Pamela Weissberg
-                </h1>
-                <p className="text-xs text-gray-600 font-medium">Nutricionista</p>
-              </div>
-            </div>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/30 bg-gradient-to-r from-[#e1a1ed]/80 via-[#f3e8ff]/80 to-[#ee5e17]/80 backdrop-blur-2xl shadow-xl">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 h-16 md:h-20">
+        {/* Logo */}
+        <NavLink to="/" className="flex items-center gap-2 group select-none focus:outline-none">
+          <div className="relative flex items-center justify-center">
+            {/* Fondo blanco suave detrás del logo para contraste */}
+            <span className="absolute z-0 h-12 w-12 md:h-14 md:w-14 rounded-xl bg-white/90 border border-white/80 shadow-lg" />
+            {/* Halo animado */}
+            <span className="absolute z-0 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#ee2b7a]/40 via-[#fe9f5d]/30 to-[#e1a1ed]/40 blur-xl opacity-0 group-hover:opacity-80 group-focus:opacity-80 transition-all duration-500 scale-100 group-hover:scale-110 group-focus:scale-110" />
+            {/* Glow animado */}
+            <span className="absolute z-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#ee2b7a]/60 via-[#fe9f5d]/40 to-[#e1a1ed]/60 blur-lg opacity-0 group-hover:opacity-60 group-focus:opacity-60 transition-all duration-500 animate-pulse" />
+            <img
+              src="/assets/logos/logo2transp.webp"
+              alt="Nutricionista Pamela Weissberg"
+              className="relative z-10 h-10 w-auto md:h-12 rounded-xl group-hover:scale-110 group-focus:scale-110 transition-transform duration-300"
+              draggable="false"
+              style={{ background: 'transparent', border: 'none' }}
+            />
           </div>
+          <span className="hidden md:block font-bold text-lg bg-gradient-to-r from-[#ee2b7a] via-[#fe9f5d] to-[#e1a1ed] bg-clip-text text-transparent tracking-tight drop-shadow-md transition-all duration-500 group-hover:drop-shadow-[0_0_8px_#ee2b7a80] group-focus:drop-shadow-[0_0_8px_#ee2b7a80] animate-gradient-x">
+            Pamela Weissberg
+          </span>
+        </NavLink>
 
-          {/* Desktop Menu - Mejorado para mejor responsividad */}
-          <ul className="hidden lg:flex items-center space-x-1 xl:space-x-2 text-white font-medium bg-white/30 backdrop-blur-lg rounded-full px-3 xl:px-4 py-2 shadow-lg border border-white/40">
-            <li>
+        {/* Desktop nav */}
+        <ul className="hidden lg:flex items-center gap-2 bg-white/60 backdrop-blur-xl rounded-full px-4 py-2 shadow border border-white/40">
+          {navLinks.map((link, idx) => (
+            <li key={link.to} className="relative">
               <NavLink
-                to="/"
+                to={link.to}
                 className={({ isActive }) =>
-                  `px-3 xl:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/50 hover:backdrop-blur-md hover:shadow-md hover:text-[#fe9f5d] focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] text-sm xl:text-base flex items-center ${
-                    isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:scale-105'
+                  `flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] text-base ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg scale-105'
+                      : 'text-[#4b0082] hover:bg-white/80 hover:text-[#ee2b7a] hover:scale-105'
                   }`
                 }
               >
-                <FaHome className="mr-1 xl:mr-2 text-sm" /> 
-                <span className="hidden xl:inline">Home</span>
-                <span className="xl:hidden">Inicio</span>
+                <span className="text-xl">{link.icon}</span>
+                <span className="hidden xl:inline">{link.desktop}</span>
+                <span className="xl:hidden">{link.label}</span>
               </NavLink>
+              {idx < navLinks.length - 1 && (
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 h-6 w-0.5 bg-gradient-to-b from-[#ee2b7a]/40 to-[#fe9f5d]/40 rounded-full" />
+              )}
             </li>
-            <li>
-              <span className="h-6 w-0.5 bg-gradient-to-b from-[#ee2b7a]/40 to-[#fe9f5d]/40 mx-1 rounded-full" />
-            </li>
-            <li>
-              <NavLink
-                to="/quien-soy"
-                className={({ isActive }) =>
-                  `px-3 xl:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/50 hover:backdrop-blur-md hover:shadow-md hover:text-[#fe9f5d] focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] text-sm xl:text-base flex items-center ${
-                    isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:scale-105'
-                  }`
-                }
-              >
-                <FaUser className="mr-1 xl:mr-2 text-sm" /> 
-                <span className="hidden xl:inline">Quién Soy</span>
-                <span className="xl:hidden">Sobre Mí</span>
-              </NavLink>
-            </li>
-            <li>
-              <span className="h-6 w-0.5 bg-gradient-to-b from-[#ee2b7a]/40 to-[#fe9f5d]/40 mx-1 rounded-full" />
-            </li>
-            <li>
-              <NavLink
-                to="/recetario"
-                className={({ isActive }) =>
-                  `px-3 xl:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/50 hover:backdrop-blur-md hover:shadow-md hover:text-[#fe9f5d] focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] text-sm xl:text-base flex items-center ${
-                    isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:scale-105'
-                  }`
-                }
-              >
-                <FaBook className="mr-1 xl:mr-2 text-sm" /> 
-                <span>Recetario</span>
-              </NavLink>
-            </li>
-            <li>
-              <span className="h-6 w-0.5 bg-gradient-to-b from-[#ee2b7a]/40 to-[#fe9f5d]/40 mx-1 rounded-full" />
-            </li>
-            <li>
-              <NavLink
-                to="/turnos-online"
-                className={({ isActive }) =>
-                  `px-3 xl:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/50 hover:backdrop-blur-md hover:shadow-md hover:text-[#fe9f5d] focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] text-sm xl:text-base flex items-center ${
-                    isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:scale-105'
-                  }`
-                }
-              >
-                <FaCalendarAlt className="mr-1 xl:mr-2 text-sm" /> 
-                <span className="hidden xl:inline">Turnos Online</span>
-                <span className="xl:hidden">Turnos</span>
-              </NavLink>
-            </li>
-          </ul>
+          ))}
+        </ul>
 
-          {/* Mobile Menu Button - Mejorado */}
-          <div className="lg:hidden">
-            <button
-              onClick={toggleMenu}
-              className="relative w-11 h-11 md:w-12 md:h-12 flex flex-col items-center justify-center rounded-full bg-white/50 backdrop-blur-lg border-2 border-white/60 shadow-xl focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] transition-all duration-300 group hover:bg-white/70 hover:scale-105 hover:shadow-2xl"
-              aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-              aria-expanded={isMenuOpen}
-            >
-              {/* Efectos de fondo animados */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#ee2b7a]/20 to-[#fe9f5d]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <span
-                className={`block w-6 h-0.5 md:w-7 md:h-1 rounded-full bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] mb-1 transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-45 translate-y-1.5 md:translate-y-2' : ''
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 md:w-7 md:h-1 rounded-full bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] mb-1 transition-all duration-300 ${
-                  isMenuOpen ? 'opacity-0' : ''
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 md:w-7 md:h-1 rounded-full bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] transition-all duration-300 ${
-                  isMenuOpen ? '-rotate-45 -translate-y-1.5 md:-translate-y-2' : ''
-                }`}
-              ></span>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu - Mejorado */}
-        <div
-          className={`lg:hidden transition-all duration-500 ease-in-out ${
-            isMenuOpen ? 'block animate-fade-in-down' : 'hidden'
-          } absolute top-full left-0 w-full z-40 mt-2`}
+        {/* Botón hamburguesa */}
+        <button
+          className="lg:hidden relative w-12 h-12 flex flex-col items-center justify-center rounded-full bg-white/70 backdrop-blur-xl border border-white/50 shadow-xl focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] transition-all duration-300 group hover:bg-white/90 hover:scale-105"
+          aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={isMenuOpen}
+          onClick={toggleMenu}
         >
-          <div className="mx-3 md:mx-4 rounded-3xl bg-white/90 backdrop-blur-2xl shadow-2xl border-2 border-white/70 p-4 md:p-6 overflow-hidden">
-            {/* Fondo decorativo animado */}
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#ee2b7a] via-[#fe9f5d] to-[#e1a1ed] animate-pulse"></div>
-            
-            <ul className="text-[#4b0082] font-semibold text-base md:text-lg space-y-3">
-              <li className="transform transition-all duration-300 hover:scale-105">
-                <NavLink
-                  to="/"
-                  onClick={toggleMenu}
-                  className={({ isActive }) =>
-                    `block p-3 md:p-4 rounded-2xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#ee2b7a]/80 hover:to-[#fe9f5d]/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] hover:shadow-lg hover:transform hover:scale-105 ${
-                      isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:bg-gradient-to-r hover:from-[#ee2b7a]/10 hover:to-[#fe9f5d]/10'
-                    }`
-                  }
-                >
-                  <FaHome className="inline mr-3 text-lg" /> Home
-                </NavLink>
-              </li>
-              <li className="transform transition-all duration-300 hover:scale-105">
-                <NavLink
-                  to="/quien-soy"
-                  onClick={toggleMenu}
-                  className={({ isActive }) =>
-                    `block p-3 md:p-4 rounded-2xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#ee2b7a]/80 hover:to-[#fe9f5d]/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] hover:shadow-lg hover:transform hover:scale-105 ${
-                      isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:bg-gradient-to-r hover:from-[#ee2b7a]/10 hover:to-[#fe9f5d]/10'
-                    }`
-                  }
-                >
-                  <FaUser className="inline mr-3 text-lg" /> Quién Soy
-                </NavLink>
-              </li>
-              <li className="transform transition-all duration-300 hover:scale-105">
-                <NavLink
-                  to="/recetario"
-                  onClick={toggleMenu}
-                  className={({ isActive }) =>
-                    `block p-3 md:p-4 rounded-2xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#ee2b7a]/80 hover:to-[#fe9f5d]/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] hover:shadow-lg hover:transform hover:scale-105 ${
-                      isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:bg-gradient-to-r hover:from-[#ee2b7a]/10 hover:to-[#fe9f5d]/10'
-                    }`
-                  }
-                >
-                  <FaBook className="inline mr-3 text-lg" /> Recetario
-                </NavLink>
-              </li>
-              <li className="transform transition-all duration-300 hover:scale-105">
-                <NavLink
-                  to="/turnos-online"
-                  onClick={toggleMenu}
-                  className={({ isActive }) =>
-                    `block p-3 md:p-4 rounded-2xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#ee2b7a]/80 hover:to-[#fe9f5d]/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] hover:shadow-lg hover:transform hover:scale-105 ${
-                      isActive ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg transform scale-105' : 'text-[#4b0082] hover:bg-gradient-to-r hover:from-[#ee2b7a]/10 hover:to-[#fe9f5d]/10'
-                    }`
-                  }
-                >
-                  <FaCalendarAlt className="inline mr-3 text-lg" /> Turnos Online
-                </NavLink>
-              </li>
+          <span className={`block absolute left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] transition-all duration-300 ${isMenuOpen ? 'rotate-45 top-6' : 'top-4'}`}></span>
+          <span className={`block absolute left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'top-6'}`}></span>
+          <span className={`block absolute left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] transition-all duration-300 ${isMenuOpen ? '-rotate-45 top-6' : 'top-8'}`}></span>
+        </button>
+      </div>
+
+      {/* Mobile menu sheet mejorado */}
+      <div
+        className={`lg:hidden fixed left-0 top-0 w-full h-screen bg-black/40 z-40 transition-all duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={toggleMenu}
+        aria-hidden={!isMenuOpen}
+      >
+        <nav
+          className={`absolute top-0 left-0 w-full bg-white/95 backdrop-blur-2xl shadow-2xl rounded-b-3xl border-b-2 border-white/60 transition-transform duration-300 ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
+          style={{ minHeight: 'min(80vh, 480px)' }}
+          onClick={e => e.stopPropagation()}
+        >
+          {/* Botón cerrar (cruz) */}
+          <button
+            onClick={toggleMenu}
+            aria-label="Cerrar menú"
+            className="absolute top-4 right-4 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-white/80 hover:bg-white/100 shadow-lg border border-white/60 focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] transition-all duration-200"
+          >
+            <span className="block w-7 h-0.5 bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] rounded-full rotate-45 absolute"></span>
+            <span className="block w-7 h-0.5 bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] rounded-full -rotate-45 absolute"></span>
+          </button>
+          <div className="flex flex-col items-center gap-2 py-10 px-6">
+            <ul className="w-full flex flex-col gap-2 mt-4">
+              {navLinks.map(link => (
+                <li key={link.to}>
+                  <NavLink
+                    to={link.to}
+                    onClick={toggleMenu}
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 px-5 py-4 rounded-2xl text-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] w-full ${
+                        isActive
+                          ? 'bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] text-white shadow-lg scale-105'
+                          : 'text-[#4b0082] hover:bg-gradient-to-r hover:from-[#ee2b7a]/80 hover:to-[#fe9f5d]/80 hover:text-white hover:scale-105'
+                      }`
+                    }
+                  >
+                    <span className="text-2xl">{link.icon}</span>
+                    <span>{link.desktop}</span>
+                  </NavLink>
+                </li>
+              ))}
             </ul>
-            
-            {/* Información adicional en móvil */}
-            <div className="mt-6 pt-4 border-t border-gray-200/50">
-              <p className="text-center text-sm text-gray-600">
-                <span className="font-semibold bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] bg-clip-text text-transparent">
-                  Nutricionista Pamela Weissberg
-                </span>
-              </p>
+            <div className="mt-8 text-center text-sm text-gray-500">
+              <span className="font-semibold bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] bg-clip-text text-transparent">Nutricionista Pamela Weissberg</span>
             </div>
           </div>
-        </div>
+        </nav>
+      </div>
     </nav>
   );
 };

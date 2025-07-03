@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevención de scroll horizontal global */
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  @apply m-0 font-sans antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Prevenir desbordamiento en todos los elementos */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Asegurar que los contenedores no excedan el viewport */
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+/* Ocultar barras de scroll completamente */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+code {
+  @apply font-mono;
+}
+
 /* Animación para el efecto de máquina de escribir */
 @keyframes typing {
   0% {
@@ -50,13 +94,4 @@
 .wave {
   animation: wave 1s infinite;
   transform-origin: 70% 70%;
-}
-
-
-body {
-  @apply m-0 font-sans antialiased;
-}
-
-code {
-  @apply font-mono;
 }
