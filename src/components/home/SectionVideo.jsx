@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 
 const SectionVideo = () => {
+  const [videoReady, setVideoReady] = useState(false);
+  const [hideLogo, setHideLogo] = useState(false);
+
+  // Cuando el video está listo, inicia la animación de desvanecimiento
+  const handleVideoReady = () => {
+    setVideoReady(true);
+    setTimeout(() => setHideLogo(true), 600); // 600ms para el fade
+  };
+
   return (
     <section
       className="relative bg-gradient-to-br from-[#e6d8ff] via-[#f3e8ff] to-[#df9fe9] px-2 py-8 sm:px-4 md:px-8 lg:px-16 xl:px-32 flex flex-col items-center justify-center min-h-[60vh] rounded-2xl shadow-2xl my-8 overflow-hidden"
@@ -16,8 +25,19 @@ const SectionVideo = () => {
       </h2>
 
       <div
-        className="relative w-full aspect-video max-w-[90vw] sm:max-w-xl md:max-w-2xl lg:max-w-xl xl:max-w-2xl 2xl:max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/40 backdrop-blur-lg group transition-all duration-500"
+        className="relative w-full max-w-[400px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[520px] xl:max-w-[600px] 2xl:max-w-[650px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/40 backdrop-blur-lg group transition-all duration-500"
+        style={{ aspectRatio: '9/16' }}
       >
+        {/* Imagen de logo como placeholder mientras carga el video */}
+        {!hideLogo && (
+          <img
+            src="/assets/logos/logo1.webp"
+            alt="Logo Pamela Weissberg"
+            className={`absolute inset-0 w-full h-full object-contain bg-white z-10 animate-pulse transition-opacity duration-700 ${videoReady ? 'opacity-0' : 'opacity-100'}`}
+            style={{ aspectRatio: '9/16' }}
+            draggable="false"
+          />
+        )}
         {/* Player responsivo y accesible */}
         <ReactPlayer
           url="/assets/videos/Nuestranutri.mp4"
@@ -27,7 +47,8 @@ const SectionVideo = () => {
           muted
           width="100%"
           height="100%"
-          style={{ width: '100%', height: '100%' }}
+          style={{ width: '100%', height: '100%', aspectRatio: '9/16', objectFit: 'cover' }}
+          onReady={handleVideoReady}
           config={{
             file: {
               attributes: {

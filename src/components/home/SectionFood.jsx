@@ -175,6 +175,13 @@ const SectionFoodNutritionist = () => {
       >
       {/* Elementos decorativos de fondo optimizados */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        {/* Logo arriba a la izquierda sobre el gradiente */}
+        <img 
+          src="/assets/logos/logo2transp.webp" 
+          alt="Logo Pamela Weissberg" 
+          className="absolute top-4 left-4 h-14 w-auto z-20 drop-shadow-xl rounded-xl bg-white/30 p-1 border border-pink-200/60 pointer-events-auto transition-all duration-300 hover:scale-110 hover:bg-white/70 hover:shadow-2xl"
+          style={{ maxWidth: '110px' }}
+        />
         {/* Gradiente superior más marcado */}
         <div className="absolute top-0 left-0 w-full h-32 sm:h-40 lg:h-56 bg-gradient-to-b from-pink-300 via-pink-200 to-transparent opacity-80 z-10 pointer-events-none rounded-t-2xl sm:rounded-t-3xl lg:rounded-t-[2.5rem]" />
         {/* Gradiente inferior más marcado */}
