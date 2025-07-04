@@ -401,7 +401,7 @@ const SectionFoodNutritionist = () => {
 
             {/* Call to action button ultra-mejorado */}
             <motion.div
-              className="pt-10 sm:pt-8 lg:pt-12"
+              className="pt-12 sm:pt-8 lg:pt-12"
               variants={animationVariants.item}
               /*
                 En mobile (pantallas pequeñas), aumentamos el padding-top para dar más espacio
@@ -473,6 +473,8 @@ const SectionFoodNutritionist = () => {
                   transition={shouldReduceMotion ? {} : { duration: 1.5, repeat: Infinity }}
                 />
               </motion.button>
+              {/* Espacio extra solo en mobile debajo del botón */}
+              <div className="block sm:hidden" style={{ height: '2.5rem' }}></div>
             </motion.div>
           </motion.div>
         </div>
@@ -483,4 +485,3 @@ const SectionFoodNutritionist = () => {
 };
 
 export default SectionFoodNutritionist;
-        
