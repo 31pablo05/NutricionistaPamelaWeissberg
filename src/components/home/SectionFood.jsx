@@ -167,7 +167,7 @@ const SectionFoodNutritionist = () => {
       <motion.section 
         role="region"
         aria-labelledby="nutrition-section-title"
-        className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-gradient-to-br from-white via-purple-50/30 to-pink-50/30 overflow-hidden"
+        className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-gradient-to-b from-pink-100 via-white to-purple-100 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] border border-pink-200/40 shadow-xl overflow-hidden"
         variants={animationVariants.container}
         initial="hidden"
         whileInView="visible"
@@ -175,8 +175,13 @@ const SectionFoodNutritionist = () => {
       >
       {/* Elementos decorativos de fondo optimizados */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        {/* Gradiente superior más marcado */}
+        <div className="absolute top-0 left-0 w-full h-32 sm:h-40 lg:h-56 bg-gradient-to-b from-pink-300 via-pink-200 to-transparent opacity-80 z-10 pointer-events-none rounded-t-2xl sm:rounded-t-3xl lg:rounded-t-[2.5rem]" />
+        {/* Gradiente inferior más marcado */}
+        <div className="absolute bottom-0 left-0 w-full h-32 sm:h-40 lg:h-56 bg-gradient-to-t from-purple-300 via-purple-100 to-transparent opacity-80 z-10 pointer-events-none rounded-b-2xl sm:rounded-b-3xl lg:rounded-b-[2.5rem]" />
+        {/* Burbujas decorativas animadas */}
         <motion.div
-          className="absolute -top-32 sm:-top-40 -right-32 sm:-right-40 w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-br from-pink-200/40 to-purple-200/40 rounded-full blur-3xl will-change-transform"
+          className="absolute -top-24 sm:-top-32 -right-24 sm:-right-32 w-72 h-72 sm:w-96 sm:h-96 bg-pink-200/60 rounded-full blur-2xl will-change-transform"
           animate={shouldReduceMotion ? {} : {
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
@@ -188,7 +193,7 @@ const SectionFoodNutritionist = () => {
           }}
         />
         <motion.div
-          className="absolute -bottom-32 sm:-bottom-40 -left-32 sm:-left-40 w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-br from-blue-200/40 to-indigo-200/40 rounded-full blur-3xl will-change-transform"
+          className="absolute -bottom-24 sm:-bottom-32 -left-24 sm:-left-32 w-72 h-72 sm:w-96 sm:h-96 bg-purple-200/60 rounded-full blur-2xl will-change-transform"
           animate={shouldReduceMotion ? {} : {
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
