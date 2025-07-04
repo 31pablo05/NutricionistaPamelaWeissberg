@@ -34,7 +34,7 @@ const SectionVideo = () => {
             src="/assets/logos/logo1.webp"
             alt="Logo Pamela Weissberg"
             className={`absolute inset-0 w-full h-full object-contain bg-white z-10 animate-pulse transition-opacity duration-700 ${videoReady ? 'opacity-0' : 'opacity-100'}`}
-            style={{ aspectRatio: '9/16' }}
+            style={{ aspectRatio: '9/16', maxWidth: '80%', maxHeight: '80%' }}
             draggable="false"
           />
         )}

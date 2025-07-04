@@ -28,20 +28,14 @@ const Navbar = () => {
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2 group select-none focus:outline-none">
           <div className="relative flex items-center justify-center">
-            {/* Fondo blanco suave detrás del logo para contraste */}
-            <span className="absolute z-0 h-12 w-12 md:h-14 md:w-14 rounded-xl bg-white/90 border border-white/80 shadow-lg" />
-            {/* Halo animado */}
-            <span className="absolute z-0 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#ee2b7a]/40 via-[#fe9f5d]/30 to-[#e1a1ed]/40 blur-xl opacity-0 group-hover:opacity-80 group-focus:opacity-80 transition-all duration-500 scale-100 group-hover:scale-110 group-focus:scale-110" />
-            {/* Glow animado */}
-            <span className="absolute z-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#ee2b7a]/60 via-[#fe9f5d]/40 to-[#e1a1ed]/60 blur-lg opacity-0 group-hover:opacity-60 group-focus:opacity-60 transition-all duration-500 animate-pulse" />
+            {/* Solo logo, sin fondo ni marco */}
             <img
-              src="/assets/logos/logo2transp.webp"
+              src="/assets/svgLogo/logotransp.svg"
               alt="Nutricionista Pamela Weissberg"
-              className="relative z-10 h-10 w-auto md:h-12 rounded-xl group-hover:scale-110 group-focus:scale-110 transition-transform duration-300"
+              className="relative z-10 h-20 w-20 md:h-28 md:w-28 object-contain drop-shadow-[0_2px_12px_rgba(238,43,122,0.25)] group-hover:scale-115 group-focus:scale-115 transition-transform duration-300"
               draggable="false"
-              style={{ background: 'transparent', border: 'none' }}
+              style={{ background: 'transparent', border: 'none', filter: 'drop-shadow(0 0 8px #ee2b7a66) drop-shadow(0 0 2px #fff)' }}
             />
-
           </div>
           <span className="hidden md:block font-bold text-lg bg-gradient-to-r from-[#ee2b7a] via-[#fe9f5d] to-[#e1a1ed] bg-clip-text text-transparent tracking-tight drop-shadow-md transition-all duration-500 group-hover:drop-shadow-[0_0_8px_#ee2b7a80] group-focus:drop-shadow-[0_0_8px_#ee2b7a80] animate-gradient-x">
             Pamela Weissberg

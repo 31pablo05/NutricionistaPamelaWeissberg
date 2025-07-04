@@ -177,10 +177,10 @@ const SectionFoodNutritionist = () => {
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         {/* Logo arriba a la izquierda sobre el gradiente */}
         <img 
-          src="/assets/logos/logo2transp.webp" 
+          src="/assets/svgLogo/logotransp.svg" 
           alt="Logo Pamela Weissberg" 
-          className="absolute top-4 left-4 h-14 w-auto z-20 drop-shadow-xl rounded-xl bg-white/30 p-1 border border-pink-200/60 pointer-events-auto transition-all duration-300 hover:scale-110 hover:bg-white/70 hover:shadow-2xl"
-          style={{ maxWidth: '110px' }}
+          className="absolute top-4 left-4 h-24 w-24 z-20 object-contain drop-shadow-[0_2px_12px_rgba(238,43,122,0.25)] pointer-events-auto transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_4px_24px_rgba(238,43,122,0.35)]"
+          style={{ maxWidth: 'none', background: 'transparent', border: 'none', padding: 0 }}
         />
         {/* Gradiente superior más marcado */}
         <div className="absolute top-0 left-0 w-full h-32 sm:h-40 lg:h-56 bg-gradient-to-b from-pink-300 via-pink-200 to-transparent opacity-80 z-10 pointer-events-none rounded-t-2xl sm:rounded-t-3xl lg:rounded-t-[2.5rem]" />
@@ -222,7 +222,7 @@ const SectionFoodNutritionist = () => {
           <motion.div
             role="status"
             aria-live="polite"
-            className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full shadow-lg mb-4 sm:mb-6 lg:mb-8"
+            className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full shadow-lg mb-4 sm:mb-6 lg:mb-8 ml-24 sm:ml-32 lg:ml-44 xl:ml-56"
             animate={animationVariants.floatingBadge}
           >
             <span className="w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 bg-green-500 rounded-full animate-pulse" aria-label="Estado activo"></span>

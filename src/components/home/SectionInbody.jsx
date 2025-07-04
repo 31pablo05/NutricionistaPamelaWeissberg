@@ -125,26 +125,20 @@ const SectionInbody = () => {
           ¡Te espero para que juntos analicemos tus resultados y planifiquemos el
           camino hacia tu mejor versión!
         </motion.p>
-        <motion.p
-          className="text-[#ee2b7a] text-lg font-bold mt-2"
+        <motion.div
+          className="flex flex-col items-center gap-2 mt-4"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
           viewport={{ once: true }}
         >
-          <strong>Lic. Weissberg Pamela 👩🏻⚕️</strong>
-        </motion.p>
-        {/* Botón de más info */}
-        <motion.a
-          href="#"
-          className="inline-block mt-4 px-5 py-2 rounded-full bg-gradient-to-r from-[#ee2b7a] via-[#ee5e17] to-[#df9fe9] text-white font-bold shadow-lg hover:scale-105 hover:shadow-pink-200/60 focus:outline-none focus:ring-2 focus:ring-[#ee2b7a] transition-all duration-300"
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.97 }}
-          tabIndex={0}
-          aria-label="Más información sobre Inbody"
-        >
-          Más info sobre Inbody
-        </motion.a>
+          <strong className="text-[#ee2b7a] text-lg font-bold">Lic. Weissberg Pamela 👩🏻⚕️</strong>
+          <img
+            src="/assets/svgLogo/logotransp.svg"
+            alt="Logo Pamela Weissberg"
+            className="w-32 h-32 object-contain"
+          />
+        </motion.div>
       </motion.div>
 
       {/* Badge flotante sobre la imagen */}
@@ -155,7 +149,7 @@ const SectionInbody = () => {
         transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
         viewport={{ once: true }}
       >
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 mb-4">
           <motion.div
             className="px-4 py-1 rounded-full bg-gradient-to-r from-[#ee2b7a] via-[#ee5e17] to-[#df9fe9] text-white font-bold text-sm shadow-xl border-2 border-white/70 backdrop-blur-md animate-pulse focus:outline-none focus:ring-2 focus:ring-[#ee2b7a]"
             initial={{ scale: 0.8, opacity: 0 }}
@@ -167,10 +161,12 @@ const SectionInbody = () => {
             ¡Tecnología Avanzada!
           </motion.div>
         </div>
+        {/* Margen entre el badge/modal y la imagen */}
+        <div className="h-8 md:h-10" />
         <motion.img
           src="/assets/imagesComponents/queeselinbody.webp"
           alt="Inbody Measurement"
-          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto rounded-3xl shadow-2xl border-4 border-white/60 object-cover bg-white/40 hover:scale-105 hover:shadow-pink-200/60 focus:shadow-pink-200/80 transition-transform duration-500 ease-in-out cursor-pointer outline-none"
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto rounded-3xl shadow-2xl border-4 border-white/60 object-cover bg-white/40 hover:scale-105 hover:shadow-pink-200/60 focus:shadow-pink-200/80 transition-transform duration-500 ease-in-out cursor-pointer outline-none mt-8"
           whileHover={{
             scale: 1.09,
             rotate: -2,
