@@ -334,7 +334,7 @@ const Banner = () => {
                 </div>
                 <div className="whitespace-nowrap">
                   <p className="font-semibold text-gray-800 text-xs lg:text-sm">Pacientes</p>
-                  <p className="text-xs text-gray-600">transformados</p>
+                  <p className="text-xs text-gray-600">Acompañadas</p>
                 </div>
               </div>
             </motion.div>
