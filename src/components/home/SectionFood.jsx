@@ -401,8 +401,13 @@ const SectionFoodNutritionist = () => {
 
             {/* Call to action button ultra-mejorado */}
             <motion.div
-              className="pt-6 sm:pt-8 lg:pt-12"
+              className="pt-10 sm:pt-8 lg:pt-12"
               variants={animationVariants.item}
+              /*
+                En mobile (pantallas pequeñas), aumentamos el padding-top para dar más espacio
+                entre el botón y el badge de 'Alimentación Saludable'.
+                En sm:pt-8 y lg:pt-12 se mantiene igual, pero en mobile (por defecto) se aumenta a pt-10.
+              */
             >
               <motion.button
                 onClick={handleReservationClick}
