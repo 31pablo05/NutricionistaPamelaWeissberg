@@ -10,7 +10,7 @@ const CardNutricionResistencia = ({ isActive, onToggle }) => {
       "Hidratación deportiva",
       "Recetas de carbohidratos complejos",
     ],
-    imgSrc: "/assets/images/nutricionResistencia.jpg",
+    imgSrc: "/assets/imagesCard/nutricionResistencia.webp",
     recipeDetails: "Recetas ideales para resistencia y energía prolongada.",
   };
 

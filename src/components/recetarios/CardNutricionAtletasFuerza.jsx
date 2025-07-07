@@ -10,7 +10,7 @@ const CardNutricionAtletasFuerza = ({ isActive, onToggle }) => {
       "Batidos post-entrenamiento ricos en proteínas y carbohidratos",
       "Menús de alta proteína para el día a día",
     ],
-    imgSrc: "/assets/images/levantar-pesas-2153765.webp",
+    imgSrc: "/assets/imagesCard/levantar-pesas.webp",
     recipeDetails: "Recetarios detallados para aumentar masa muscular y recuperar energía.",
   };
 

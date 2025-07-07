@@ -10,7 +10,7 @@ const CardNutricionCiclistas = ({ isActive, onToggle }) => {
       "Recetas para recuperación muscular",
       "Snacks fáciles de llevar",
     ],
-    imgSrc: "/assets/images/nutriciclistas.webp",
+    imgSrc: "/assets/imagesCard/nutriciclistas.webp",
     recipeDetails: "Recetas para mejorar el rendimiento ciclista y recuperación.",
   };
 

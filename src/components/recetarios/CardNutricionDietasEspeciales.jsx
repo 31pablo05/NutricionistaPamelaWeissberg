@@ -10,7 +10,7 @@ const CardNutricionDietasEspeciales = ({ isActive, onToggle }) => {
       "Recetas veganas",
       "Menús sin lactosa",
     ],
-    imgSrc: "/assets/images/dietasEspeciales.jpg",
+    imgSrc: "/assets/imagesCard/dietasEspeciales.webp",
     recipeDetails: "Recetas adaptadas para dietas especiales.",
   };
 

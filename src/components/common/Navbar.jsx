@@ -86,7 +86,7 @@ const Navbar = () => {
       >
         <nav
           className={`absolute top-0 left-0 w-full bg-white/95 backdrop-blur-2xl shadow-2xl rounded-b-3xl border-b-2 border-white/60 transition-transform duration-300 ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
-          style={{ minHeight: 'min(80vh, 480px)' }}
+          style={{ minHeight: 'unset', paddingBottom: '2.5rem' }}
           onClick={e => e.stopPropagation()}
         >
           {/* Botón cerrar (cruz) */}
@@ -119,9 +119,6 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 text-center text-sm text-gray-500">
-              <span className="font-semibold bg-gradient-to-r from-[#ee2b7a] to-[#fe9f5d] bg-clip-text text-transparent">Nutricionista Pamela Weissberg</span>
-            </div>
           </div>
         </nav>
       </div>

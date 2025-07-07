@@ -10,7 +10,7 @@ const CardNutricionTriatletas = ({ isActive, onToggle }) => {
       "Recetas para mantener la resistencia",
       "Menús de recuperación post-entrenamiento",
     ],
-    imgSrc: "/assets/images/modalidades-triatlon.jpg",
+    imgSrc: "/assets/imagesCard/modalidades-triatlon.webp",
     recipeDetails: "Recetas para triatletas que combinan tres disciplinas deportivas.",
   };
 

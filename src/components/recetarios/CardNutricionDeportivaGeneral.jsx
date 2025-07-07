@@ -10,7 +10,7 @@ const CardNutricionDeportivaGeneral = ({ isActive, onToggle }) => {
       "Comidas pre-entrenamiento",
       "Snacks para recuperación",
     ],
-    imgSrc: "/assets/images/nd.png",
+    imgSrc: "/assets/imagesCard/General.webp",
     recipeDetails: "Recetarios completos para nutrición deportiva general.",
   };
 
