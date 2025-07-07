@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
+import CalendarWhatsappTurno from '../components/home/CalendarWhatsappTurno.jsx';
 
 const initialFormData = {
   nombre: '',
@@ -93,7 +94,7 @@ const TurnosOnline = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center py-10 bg-gradient-to-br from-[#f3e8ff] via-[#ffe5f7] to-[#ffecd2] overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-10 bg-gradient-to-br from-[#f3e8ff] via-[#ffe5f7] to-[#ffecd2] overflow-hidden">
       {/* Fondo decorativo animado */}
       <motion.div
         className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-br from-[#ee5e17]/40 via-[#dd9fea]/40 to-[#fceff8]/60 rounded-full blur-3xl animate-spin-slow z-0"
@@ -110,19 +111,20 @@ const TurnosOnline = () => {
         transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
       />
       <motion.div
-        className="relative z-10 w-full max-w-xl bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/60 px-2 md:px-8 py-8 md:py-12"
+        className="relative z-10 w-full max-w-xl bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/60 px-2 md:px-8 py-8 md:py-12 mb-10"
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, type: 'spring' }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-[#dd9fea] via-[#ee5e17] to-[#fceff8] bg-clip-text text-transparent drop-shadow-lg text-center mb-8 tracking-wide"
+          className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-[#dd9fea] via-[#ee5e17] to-[#fceff8] bg-clip-text text-transparent drop-shadow-lg text-center mb-2 tracking-wide"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, type: 'spring' }}
         >
-          Reservar Turno
+          Reservar Turno por Email
         </motion.h2>
+        <p className="text-center text-sm text-gray-500 mb-6">Completá el formulario para solicitar tu turno por email. Si preferís reservar por WhatsApp, usá el calendario más abajo.</p>
         {mensajeConfirmacion && (
           <motion.p
             className="text-green-600 mb-4 text-center font-semibold"
@@ -232,6 +234,10 @@ const TurnosOnline = () => {
           </motion.button>
         </form>
       </motion.div>
+      {/* Turnos por WhatsApp: opción alternativa */}
+      <div className="w-full flex justify-center">
+        <CalendarWhatsappTurno />
+      </div>
     </div>
   );
 };

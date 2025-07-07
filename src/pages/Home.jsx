@@ -5,6 +5,7 @@ import SectionFood from '../components/home/SectionFood.jsx';
 import SectionVideo from '../components/home/SectionVideo.jsx';
 import ProductsSection from '../components/home/ProductsSection.jsx';
 import SectionInbody from '../components/home/SectionInbody.jsx';
+import CalendarWhatsappTurno from '../components/home/CalendarWhatsappTurno.jsx';
 const Home = () => {
   return (
     <>
@@ -35,6 +36,11 @@ const Home = () => {
         <div className="relative z-10 space-y-16 py-8">
           <section className="container mx-auto px-4">
             <SectionFood />
+          </section>
+
+          {/* Turnos por WhatsApp: debajo de SectionFood */}
+          <section className="container mx-auto px-4">
+            <CalendarWhatsappTurno />
           </section>
 
           <section className="container mx-auto px-4">
