@@ -9,36 +9,11 @@ const QuienSoy = () => {
     <section className="relative w-full max-w-[1400px] mx-auto mt-24 mb-12 p-2 md:p-4 overflow-visible scroll-smooth">
       {/* Fondo animado decorativo más visible y sección con glassmorphism y bordes redondeados */}
       {/* Fondo animado decorativo, sin animación de scroll automática */}
-      {/* Fondo animado decorativo con partículas y burbujas */}
+      {/* Fondo animado decorativo con gradientes grandes, sin partículas animadas */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none select-none" aria-hidden="true">
         {/* Gradientes grandes */}
         <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-gradient-to-br from-[#dd9fea]/70 via-[#ee5e17]/60 to-[#fceff8]/80 rounded-full blur-2xl animate-spin-slow" style={{ filter: 'blur(80px)' }} />
         <div className="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-gradient-to-br from-[#ee5e17]/70 via-[#dd9fea]/60 to-[#fceff8]/80 rounded-full blur-2xl animate-spin-slow" style={{ filter: 'blur(80px)' }} />
-        {/* Partículas animadas */}
-        {[...Array(12)].map((_, i) => (
-          <motion.span
-            key={i}
-            className="absolute rounded-full bg-white/40 shadow-lg"
-            style={{
-              width: `${10 + Math.random() * 18}px`,
-              height: `${10 + Math.random() * 18}px`,
-              left: `${Math.random() * 95}%`,
-              top: `${Math.random() * 95}%`,
-              filter: 'blur(1.5px)'
-            }}
-            animate={{
-              y: [0, Math.random() * 60 - 30, 0],
-              opacity: [0.7, 1, 0.7]
-            }}
-            transition={{
-              duration: 6 + Math.random() * 4,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              delay: Math.random() * 2
-            }}
-            aria-hidden="true"
-          />
-        ))}
       </div>
       <motion.div
         className="relative z-10 bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/60 px-2 md:px-8 py-8 md:py-12 max-w-6xl xl:max-w-[1200px] mx-auto"
@@ -219,12 +194,11 @@ const QuienSoy = () => {
         <motion.img
           src="/assets/imagesPame/pame11.svg"
           alt="Pamela señalando el botón de agendar consulta"
-          className="block w-60 h-auto -mb-2 -mt-12 ml-[-96px] md:w-80 md:-mb-2 md:-mt-16 md:ml-[-60px] lg:w-[380px] lg:-mb-3 lg:-mt-20 lg:ml-[-100px] xl:w-[500px] xl:-mb-4 xl:-mt-28 xl:ml-[-140px] select-none pointer-events-none cursor-pointer"
+          className="block w-60 h-auto -mb-2 -mt-12 ml-[-96px] md:w-80 md:-mb-2 md:-mt-16 md:ml-[-60px] lg:w-[380px] lg:-mb-3 lg:-mt-20 lg:ml-[-100px] xl:w-[500px] xl:-mb-4 xl:-mt-28 xl:ml-[-140px] select-none cursor-pointer transition-transform duration-300"
           style={{ transform: 'rotate(-8deg)' }}
           aria-hidden="true"
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.9, type: 'spring' }}
           whileHover={{ scale: 1.13 }}
         />
       </div>
