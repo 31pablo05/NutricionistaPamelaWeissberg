@@ -47,9 +47,7 @@ const Home = () => {
             <SectionVideo />
           </section>
           <SectionInbody />
-          <section className="container mx-auto px-4">
-            <ProductsSection />
-          </section>
+          
         </div>
       </main>
     </>
