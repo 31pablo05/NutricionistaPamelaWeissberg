@@ -1,0 +1,24 @@
+# robots.txt para Nutricionista Pamela Weissberg
+# Permitir acceso a todos los bots de búsqueda
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pamelawissbergnutricion.vercel.app/sitemap.xml
+
+# Bots específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Evitar indexación de archivos específicos (si los hubiera)
+Disallow: /api/
+Disallow: /*.json$
+
+# Crawl-delay para no sobrecargar el servidor
+Crawl-delay: 1

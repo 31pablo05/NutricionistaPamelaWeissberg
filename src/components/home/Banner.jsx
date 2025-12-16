@@ -86,13 +86,14 @@ const Banner = () => {
           transition={{ duration: 1, ease: "easeInOut" }}
         ></motion.div>
         
-        {/* Video con manejo de estados mejorado */}
+        {/* Video con manejo de estados mejorado y lazy loading */}
         <motion.video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           poster="/assets/imagesComponents/posterBanner.webp"
           className="w-full h-full object-cover"
           onCanPlay={handleVideoCanPlay}
